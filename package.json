@@ -14,5 +14,10 @@
   "license": "Apache v2",
   "bugs": {
     "url": "https://github.com/jaredly/rememberme/issues"
+  },
+  "dependencies": {
+    "familysearch-javascript-sdk": "git+https://github.com/rootsdev/familysearch-javascript-sdk",
+    "react": "~0.11.2",
+    "reactify": "~0.14.0"
   }
 }
