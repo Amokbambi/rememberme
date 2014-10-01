@@ -1,22 +1,16 @@
 
 var App = require('./lib')
+  , FStore = require('./lib/fstore')
+
   , React = require('react')
 
-  , FS = require('familysearch-javascript-sdk')
-  , config = require('./config.json')
+  , config = require('./config.js')
 
 window.addEventListener('DOMContentLoaded', function () {
-  FS.init({
-    client_id: config.client,
-    environment: config.environment,
-    redirect_uri: 'localhost',
-    http_function: $.ajax,
-    deferred_function: $.Deferred,
-    save_access_token: true,
-    auto_expire: true,
-  })
+  var store = new FStore()
 
   React.renderComponent(App({
+    store: store,
   }), document.body)
 })
 
