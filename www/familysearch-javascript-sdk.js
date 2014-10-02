@@ -11198,6 +11198,7 @@ define('utilities',[
   exports.getRedirectUrl = function(params) {
     return helpers.appendAccessToken(helpers.appendQueryParameters(helpers.getAPIServerUrl('/platform/redirect'), params));
   };
+  exports.ready = globals.discoveryPromise;
 
   return exports;
 });
@@ -11387,7 +11388,8 @@ define('FamilySearch',[
     getMultiAgent: user.getMultiAgent,
 
     // utilities
-    getRedirectUrl: utilities.getRedirectUrl
+    getRedirectUrl: utilities.getRedirectUrl,
+    ready: utilities.ready
   };
 });
   // Ask almond to synchronously require the

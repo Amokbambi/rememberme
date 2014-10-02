@@ -9,7 +9,7 @@ var App = require('./lib')
 
 window.React = React
 
-FS.init({
+var opts = {
   client_id: config.client,
   environment: config.environment,
   redirect_uri: 'localhost',
@@ -17,7 +17,14 @@ FS.init({
   deferred_function: $.Deferred,
   save_access_token: true,
   auto_expire: true,
-})
+}
+
+if (localStorage.access_token) {
+  opts.access_token = localStorage.access_token
+  opts.environment = 'production'
+}
+
+FS.init(opts)
 
 window.addEventListener('DOMContentLoaded', function () {
   var store = window.store = new FStore()
