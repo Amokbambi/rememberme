@@ -7,6 +7,8 @@ var App = require('./lib')
   , config = require('./config')
   , FS = FamilySearch
 
+window.React = React
+
 FS.init({
   client_id: config.client,
   environment: config.environment,
@@ -18,7 +20,7 @@ FS.init({
 })
 
 window.addEventListener('DOMContentLoaded', function () {
-  var store = new FStore()
+  var store = window.store = new FStore()
 
   React.renderComponent(App({
     store: store,
