@@ -1,3 +1,4 @@
+@charset "utf-8";
 
 ul.StoryList_list {
   list-style: none;
@@ -77,5 +78,19 @@ button {
   float: right;
   margin-right: 10px;
   color: #777;
+}
+
+
+@-webkit-keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+.Syncer-syncing::after {
+  content: "↻";
+  -webkit-animation: spin 2s infinite linear;
+  position: relative;
+  margin-left: 30px
+  top: 2px;
 }
 
