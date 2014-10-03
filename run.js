@@ -1,6 +1,7 @@
 
 var App = require('./lib')
   , FStore = require('./lib/fstore')
+  , Db = require('./lib/db')
 
   , React = require('react')
 
@@ -27,10 +28,13 @@ if (localStorage.access_token) {
 FS.init(opts)
 
 window.addEventListener('DOMContentLoaded', function () {
-  var store = window.store = new FStore()
+  var db = new Db()
 
-  React.renderComponent(App({
-    store: store,
-  }), document.body)
+  db.init(data => {
+    var store = window.store = new FStore(db, data)
+    React.renderComponent(App({
+      store: store,
+    }), document.body)
+  })
 })
 
